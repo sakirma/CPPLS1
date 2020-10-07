@@ -3,10 +3,10 @@
 
 #include "Operation.h"
 
-class Label : public Operation
+class SaveLabel : public Operation
 {
 public:
-	~Label() override
+	~SaveLabel() override
 	{
 		
 	}

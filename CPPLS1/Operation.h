@@ -22,6 +22,7 @@ struct OperationData
 	{
 	}
 
+	unsigned int position = 0;
 	string line;
 	vector<string>& stack;
 	map<string, string>& variables;

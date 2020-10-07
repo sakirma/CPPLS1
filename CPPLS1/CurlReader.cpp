@@ -60,15 +60,14 @@ string CurlReader::IterateStack(vector<string>& readData) const
 
 	OperationData data = OperationData(stack, variables, labels);
 	
-	unsigned int i = 0;
-	while (i <= readData.size())
+	while (data.position <= readData.size())
 	{
-		data.line = readData[i];
+		data.line = readData[data.position];
 		
 		Operation* op = operationFactory.Get(data.line);
 		op->Execute(data);
 
-		i++;
+		data.position++;
 	}
 
 	

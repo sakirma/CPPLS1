@@ -148,7 +148,7 @@
     <ClCompile Include="Backslash.cpp" />
     <ClCompile Include="CPPLS1.cpp" />
     <ClCompile Include="CurlReader.cpp" />
-    <ClCompile Include="Label.cpp" />
+    <ClCompile Include="SaveLabel.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="OperationFactory.cpp" />
     <ClCompile Include="VariableAssignment.cpp" />
@@ -156,7 +156,7 @@
   <ItemGroup>
     <ClInclude Include="Backslash.h" />
     <ClInclude Include="CurlReader.h" />
-    <ClInclude Include="Label.h" />
+    <ClInclude Include="SaveLabel.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Operation.h" />
     <ClInclude Include="OperationFactory.h" />

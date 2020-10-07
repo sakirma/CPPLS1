@@ -39,8 +39,8 @@
     <ClCompile Include="Number.cpp">
       <Filter>Source Files\Operations</Filter>
     </ClCompile>
-    <ClCompile Include="Label.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="SaveLabel.cpp">
+      <Filter>Source Files\Operations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,8 +62,8 @@
     <ClInclude Include="VariableAssignment.h">
       <Filter>Header Files\Operations</Filter>
     </ClInclude>
-    <ClInclude Include="Label.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SaveLabel.h">
+      <Filter>Header Files\Operations</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
