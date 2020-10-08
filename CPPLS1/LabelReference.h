@@ -1,16 +1,13 @@
 #pragma once
-#include <map>
-
 #include "Operation.h"
 
-class SaveLabel : public Operation
+class LabelReference : public Operation
 {
 public:
-	~SaveLabel() override
+	~LabelReference() override
 	{
 		
 	}
-	
 	void Execute(OperationData data) override;
 };
 

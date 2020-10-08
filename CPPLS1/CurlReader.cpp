@@ -57,17 +57,18 @@ string CurlReader::IterateStack(vector<string>& readData) const
 	vector<string> stack = vector<string>();
 	map<string, string> variables = map<string, string>();
 	map<string, int> labels = map<string, int>();
-
-	OperationData data = OperationData(stack, variables, labels);
+	unsigned int position = 0;
 	
-	while (data.position <= readData.size())
+	OperationData data = OperationData(position, stack, variables, labels);
+	
+	while (position < readData.size())
 	{
-		data.line = readData[data.position];
+		data.line = readData[position];
 		
 		Operation* op = operationFactory.Get(data.line);
 		op->Execute(data);
 
-		data.position++;
+		position++;
 	}
 
 	

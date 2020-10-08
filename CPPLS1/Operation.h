@@ -12,19 +12,28 @@ class Operation
 public:
 	virtual ~Operation() = default;
 	virtual void Execute(OperationData data) = 0;
+
+protected:
+	string PopStack(vector<string>& stack) const
+	{
+		string value = stack.back();
+		stack.pop_back();
+		return value;
+	}
 };
 
 struct OperationData
 {
-	OperationData(vector<string>& stack, map<string, string>& variables, map<string, int>& label)
-		: stack(stack),
+	OperationData(unsigned int& position, vector<string>& stack, map<string, string>& variables, map<string, int>& label)
+		: position(position),
+		  stack(stack),
 		  variables(variables),
 		  label(label)
 	{
 	}
 
-	unsigned int position = 0;
 	string line;
+	unsigned int& position;
 	vector<string>& stack;
 	map<string, string>& variables;
 	map<string, int>& label;

@@ -39,10 +39,25 @@
     <ClCompile Include="Number.cpp">
       <Filter>Source Files\Operations</Filter>
     </ClCompile>
-    <ClCompile Include="SaveLabel.cpp">
+    <ClCompile Include="VariableReference.cpp">
       <Filter>Source Files\Operations</Filter>
     </ClCompile>
-    <ClCompile Include="VariableReference.cpp">
+    <ClCompile Include="Dublicate.cpp">
+      <Filter>Source Files\Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="Concatenation.cpp">
+      <Filter>Source Files\Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="Decrement.cpp">
+      <Filter>Source Files\Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="LabelDefinition.cpp">
+      <Filter>Source Files\Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="LabelReference.cpp">
+      <Filter>Source Files\Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="GNE.cpp">
       <Filter>Source Files\Operations</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,10 +80,25 @@
     <ClInclude Include="VariableAssignment.h">
       <Filter>Header Files\Operations</Filter>
     </ClInclude>
-    <ClInclude Include="SaveLabel.h">
+    <ClInclude Include="VariableReference.h">
       <Filter>Header Files\Operations</Filter>
     </ClInclude>
-    <ClInclude Include="VariableReference.h">
+    <ClInclude Include="Duplicate.h">
+      <Filter>Header Files\Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="Concatenation.h">
+      <Filter>Header Files\Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="Decrement.h">
+      <Filter>Header Files\Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelReference.h">
+      <Filter>Header Files\Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelDefinition.h">
+      <Filter>Header Files\Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="GNE.h">
       <Filter>Header Files\Operations</Filter>
     </ClInclude>
   </ItemGroup>

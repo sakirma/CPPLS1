@@ -146,9 +146,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Backslash.cpp" />
+    <ClCompile Include="Concatenation.cpp" />
     <ClCompile Include="CPPLS1.cpp" />
     <ClCompile Include="CurlReader.cpp" />
-    <ClCompile Include="SaveLabel.cpp" />
+    <ClCompile Include="Decrement.cpp" />
+    <ClCompile Include="Dublicate.cpp" />
+    <ClCompile Include="GNE.cpp" />
+    <ClCompile Include="LabelReference.cpp" />
+    <ClCompile Include="LabelDefinition.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="OperationFactory.cpp" />
     <ClCompile Include="VariableAssignment.cpp" />
@@ -156,8 +161,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Backslash.h" />
+    <ClInclude Include="Concatenation.h" />
     <ClInclude Include="CurlReader.h" />
-    <ClInclude Include="SaveLabel.h" />
+    <ClInclude Include="Decrement.h" />
+    <ClInclude Include="Duplicate.h" />
+    <ClInclude Include="GNE.h" />
+    <ClInclude Include="LabelReference.h" />
+    <ClInclude Include="LabelDefinition.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Operation.h" />
     <ClInclude Include="OperationFactory.h" />
