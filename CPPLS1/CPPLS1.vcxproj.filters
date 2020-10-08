@@ -42,6 +42,9 @@
     <ClCompile Include="SaveLabel.cpp">
       <Filter>Source Files\Operations</Filter>
     </ClCompile>
+    <ClCompile Include="VariableReference.cpp">
+      <Filter>Source Files\Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OperationFactory.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files\Operations</Filter>
     </ClInclude>
     <ClInclude Include="SaveLabel.h">
+      <Filter>Header Files\Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableReference.h">
       <Filter>Header Files\Operations</Filter>
     </ClInclude>
   </ItemGroup>

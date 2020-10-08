@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <map>
 
 struct OperationData;
 using namespace std;
