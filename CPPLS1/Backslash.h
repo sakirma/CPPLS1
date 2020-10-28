@@ -1,10 +1,6 @@
 #pragma once
 
-#include <map>
-
 #include "Operation.h"
-#include <string>
-#include <vector>
 
 class BackSlash : public Operation
 {
@@ -13,5 +9,5 @@ public:
 	{
 	}
 
-	void Execute(OperationData data) override;
+	void Execute(Operation_data data) override;
 };

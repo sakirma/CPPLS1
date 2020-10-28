@@ -92,6 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,32 +146,75 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Absolute.cpp" />
+    <ClCompile Include="Add.cpp" />
     <ClCompile Include="Backslash.cpp" />
     <ClCompile Include="Concatenation.cpp" />
     <ClCompile Include="CPPLS1.cpp" />
     <ClCompile Include="CurlReader.cpp" />
     <ClCompile Include="Decrement.cpp" />
+    <ClCompile Include="Divide.cpp" />
     <ClCompile Include="Dublicate.cpp" />
+    <ClCompile Include="Endline.cpp" />
+    <ClCompile Include="FUN.cpp" />
+    <ClCompile Include="GGE.cpp" />
+    <ClCompile Include="GGT.cpp" />
+    <ClCompile Include="GLE.cpp" />
+    <ClCompile Include="GLT.cpp" />
     <ClCompile Include="GNE.cpp" />
+    <ClCompile Include="GTO.cpp" />
+    <ClCompile Include="Increment.cpp" />
+    <ClCompile Include="Indexing.cpp" />
     <ClCompile Include="LabelReference.cpp" />
     <ClCompile Include="LabelDefinition.cpp" />
+    <ClCompile Include="Length.cpp" />
+    <ClCompile Include="Modulo.cpp" />
+    <ClCompile Include="Multiply.cpp" />
+    <ClCompile Include="Negate.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="OperationFactory.cpp" />
+    <ClCompile Include="Return.cpp" />
+    <ClCompile Include="Reverse.cpp" />
+    <ClCompile Include="Rotate.cpp" />
+    <ClCompile Include="SLC.cpp" />
+    <ClCompile Include="Substract.cpp" />
     <ClCompile Include="VariableAssignment.cpp" />
     <ClCompile Include="VariableReference.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Absolute.h" />
+    <ClInclude Include="Add.h" />
     <ClInclude Include="Backslash.h" />
     <ClInclude Include="Concatenation.h" />
     <ClInclude Include="CurlReader.h" />
+    <ClInclude Include="CurlWrapper.h" />
     <ClInclude Include="Decrement.h" />
+    <ClInclude Include="Divide.h" />
     <ClInclude Include="Duplicate.h" />
+    <ClInclude Include="Endline.h" />
+    <ClInclude Include="FUN.h" />
+    <ClInclude Include="GGE.h" />
+    <ClInclude Include="GGT.h" />
+    <ClInclude Include="GLE.h" />
+    <ClInclude Include="GLT.h" />
     <ClInclude Include="GNE.h" />
+    <ClInclude Include="GTO.h" />
+    <ClInclude Include="Increment.h" />
+    <ClInclude Include="Indexing.h" />
     <ClInclude Include="LabelReference.h" />
     <ClInclude Include="LabelDefinition.h" />
+    <ClInclude Include="Length.h" />
+    <ClInclude Include="Modulo.h" />
+    <ClInclude Include="Multiply.h" />
+    <ClInclude Include="Negate.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Operation.h" />
     <ClInclude Include="OperationFactory.h" />
+    <ClInclude Include="Return.h" />
+    <ClInclude Include="Reverse.h" />
+    <ClInclude Include="Rotate.h" />
+    <ClInclude Include="SLC.h" />
+    <ClInclude Include="Substract.h" />
     <ClInclude Include="VariableAssignment.h" />
     <ClInclude Include="VariableReference.h" />
   </ItemGroup>

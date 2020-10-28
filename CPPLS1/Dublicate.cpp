@@ -1,8 +1,8 @@
 #include "Duplicate.h"
 
-void Duplicate::Execute(OperationData data)
+void Duplicate::Execute(Operation_data data)
 {
-	string dubString = data.stack.back();
+	const string dub_string = data.stack_.back();
 
-	data.stack.push_back(dubString);
+	data.stack_.push_back(dub_string);
 }

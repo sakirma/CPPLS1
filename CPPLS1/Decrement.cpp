@@ -1,12 +1,8 @@
 #include "Decrement.h"
 
-void Decrement::Execute(OperationData data)
+void Decrement::Execute(Operation_data data)
 {
-	const string stringValue = PopStack(data.stack);
+	const int new_value = stoi(Pop_stack(data.stack_)) - 1;
 
-	int intValue = stoi(stringValue);
-
-	intValue--;
-
-	data.stack.push_back(to_string(intValue));
+	data.stack_.push_back(to_string(new_value));
 }

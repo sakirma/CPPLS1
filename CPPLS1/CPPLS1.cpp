@@ -1,22 +1,38 @@
-// CPPLS1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#ifdef _DEBUG
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+#define DEBUG_NEW new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#define new DEBUG_NEW
+#endif
 
 #include <iostream>
-#include <sstream>
-#include <vector>
 
-#include "curl/curl.h"
-#include "OperationFactory.h"
 #include "CurlReader.h"
-
-using namespace std;
+#include "OperationFactory.h"
 
 
 int main(int argc, char* argv[])
 {
-	const CurlReader curlReader = CurlReader();
-	string nextKey = curlReader.GetNextUrl("start.txt");
-	
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	// _CrtSetBreakAlloc(321);
+	// _CrtSetBreakAlloc(320);
+	// _CrtSetBreakAlloc(319);
+	Curl_reader curl_reader = Curl_reader();
+	try
+	{
+		curl_reader.Get_next_url("start.txt");
+	}
+	catch (const exception& e)
+	{
+		cout << e.what() << endl;
+	}
+	catch (...)
+	{
+		cout << "Oops, something went wrong" << endl;
+	}
+
+	Operation_factory::Get_instance()->Destroy_factory();
 	return 0;
 }
 

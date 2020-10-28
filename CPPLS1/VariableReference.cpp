@@ -1,10 +1,10 @@
 #include "VariableReference.h"
 
-void VariableReference::Execute(OperationData data)
+void VariableReference::Execute(Operation_data data)
 {
-	string labelName = data.line.erase(0, 1);
-	
-	string variableName = data.variables.at(labelName);
+	const string label_name = data.line.erase(0, 1);
 
-	data.stack.push_back(variableName);
+	const string variable_name = data.variables_.at(label_name);
+
+	data.stack_.push_back(variable_name);
 }

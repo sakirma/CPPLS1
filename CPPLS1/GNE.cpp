@@ -1,13 +1,13 @@
 #include "GNE.h"
 
-void GNE::Execute(OperationData data)
+void GNE::Execute(Operation_data data)
 {
-	const unsigned int labelValue = stoi(PopStack(data.stack));
-	const int val1 = stoi(PopStack(data.stack));
-	const int val2 = stoi(PopStack(data.stack));
+	const int label_value = stoi(Pop_stack(data.stack_));
+	const string val2 = Pop_stack(data.stack_);
+	const string val1 = Pop_stack(data.stack_);
 
 	if(val1 != val2)
 	{
-		data.position = labelValue;
+		data.position_ = label_value;
 	}
 }

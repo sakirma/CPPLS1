@@ -1,6 +1,6 @@
 #include "Number.h"
 
-void Number::Execute(OperationData data)
+void Number::Execute(Operation_data data)
 {
-	data.stack.push_back(data.line);
+	data.stack_.push_back(data.line);
 }

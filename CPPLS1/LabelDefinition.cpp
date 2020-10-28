@@ -1,7 +1,8 @@
 #include "LabelDefinition.h"
 
 
-void LabelDefinition::Execute(OperationData data)
+void LabelDefinition::Execute(Operation_data data)
 {
-	data.label.insert(pair<string, int>(data.line.erase(0, 1), data.position));
+	const string labelName = data.line.erase(0, 1);
+	data.label_.insert_or_assign(labelName, data.position_);
 }

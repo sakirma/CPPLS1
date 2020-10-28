@@ -1,12 +1,12 @@
 #include "Concatenation.h"
 
-void Concatenation::Execute(OperationData data)
+void Concatenation::Execute(Operation_data data)
 {
-	string firstString = PopStack(data.stack);
-	string secondString = PopStack(data.stack);
+	string firstString = Pop_stack(data.stack_);
+	string secondString = Pop_stack(data.stack_);
 	
 
 	string catString = secondString + firstString;
 
-	data.stack.push_back(catString);
+	data.stack_.push_back(catString);
 }

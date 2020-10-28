@@ -1,77 +1,119 @@
 #include "CurlReader.h"
+
+#include <iostream>
+#include <sstream>
+#include <curl/curl.h>
+
+
+
+#include "CurlWrapper.h"
 #include "OperationFactory.h"
 
-const string CurlReader::URL = "https://www.swiftcoder.nl/cpp1/";
-
-size_t CurlReader::WriteCallback(void* contents, const size_t size, size_t nmemb, void* userp)
+size_t Curl_reader::Write_callback(void* contents, const size_t size, size_t nmemb, void* userp)
 {
 	static_cast<string*>(userp)->append(static_cast<char*>(contents), size * nmemb);
 
 	return size * nmemb;
 }
 
-string CurlReader::GetNextUrl(string key) const
+
+
+string Curl_reader::Get_next_url(const string key)
 {
-	string readBuffer;
-	vector<string> readData;
+	string read_buffer;
+	vector<string> raw_data;
 
 	curl_global_init(CURL_GLOBAL_DEFAULT);
 
-
-	CURL* curl = curl_easy_init();
-	if (curl)
+	const Curl_wrapper curl_wrapper;
+	CURL* curl = curl_wrapper.Get_curl();
+	if (curl != nullptr)
 	{
-		curl_easy_setopt(curl, CURLOPT_URL, (URL + key).c_str());
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+		curl_easy_setopt(curl, CURLOPT_URL, (url_ + key).c_str());
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, Write_callback);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &read_buffer);
+		curl_easy_setopt(curl, CURLOPT_VERBOSE, 0);
+		curl_easy_setopt(curl, CURLOPT_FAILONERROR, true);
 
 
 		const CURLcode res = curl_easy_perform(curl);
 		if (res != CURLE_OK)
 		{
 			fprintf(stderr, "curl_easy_operation() failed : %s\n", curl_easy_strerror(res));
+			cout << "Something went wrong with the URL" << endl;
+			return "";
 		}
-		else
-		{
-			stringstream ss(readBuffer);
-			string to;
-			while (getline(ss, to, '\n'))
-			{
-				std::cout << to << std::endl;
 
-				readData.push_back(to);
-			}
+		stringstream ss(read_buffer);
+		string to;
+		while (getline(ss, to, '\n'))
+		{
+			raw_data.push_back(to);
 		}
 	}
-	curl_easy_cleanup(curl);
 
+	string new_url = Iterate_stack(raw_data);
 	
-	return IterateStack(readData);
+	if(!end_line_found_)
+	{
+		return Get_next_url(new_url);
+	}
+
+	return new_url;
 }
 
 
-string CurlReader::IterateStack(vector<string>& readData) const
+string Curl_reader::Iterate_stack(const vector<string>& read_data)
 {
-	OperationFactory& operationFactory = OperationFactory::GetInstance();
+	Operation_factory* operation_factory = Operation_factory::Get_instance();
 
 	vector<string> stack = vector<string>();
+	vector<int> call_stack = vector<int>();
 	map<string, string> variables = map<string, string>();
 	map<string, int> labels = map<string, int>();
+	vector<int> func = vector<int>();
 	unsigned int position = 0;
-	
-	OperationData data = OperationData(position, stack, variables, labels);
-	
-	while (position < readData.size())
+
+	Operation_data data = Operation_data(position, stack, variables, labels, func);
+
+	Find_labels(read_data, data);
+	cout << "=============================================" << endl;
+	while (position < read_data.size())
 	{
-		data.line = readData[position];
-		
-		Operation* op = operationFactory.Get(data.line);
+		data.line = read_data[position];
+
+		if (data.line == "end")
+		{
+			end_line_found_ = true;
+			break;
+		}
+
+		Operation* op = operation_factory->Get(data.line);
 		op->Execute(data);
+
 
 		position++;
 	}
 
-	
-	return "";
+	cout << stack.back() << endl;
+	return stack.back();
 }
 
+void Curl_reader::Find_labels(const vector<string>& read_data, Operation_data& data) const
+{
+	LabelDefinition* label_definition = dynamic_cast<LabelDefinition*>(Operation_factory::Get_instance()->Get(":"));
+
+	unsigned& position = data.position_;
+	while (position < read_data.size())
+	{
+		string line = data.line = read_data[position];
+
+		if (line[0] == ':')
+		{
+			label_definition->Execute(data);
+		}
+
+		position++;
+	}
+	position = 0;
+}

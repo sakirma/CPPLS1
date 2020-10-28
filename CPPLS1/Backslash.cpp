@@ -2,8 +2,8 @@
 
 using namespace std;
 
-void BackSlash::Execute(OperationData data)
+void BackSlash::Execute(Operation_data data)
 {
 	data.line.erase(0, 1);
-	data.stack.push_back(data.line);
+	data.stack_.push_back(data.line);
 }

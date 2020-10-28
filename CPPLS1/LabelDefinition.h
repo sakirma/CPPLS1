@@ -11,6 +11,6 @@ public:
 		
 	}
 	
-	void Execute(OperationData data) override;
+	void Execute(Operation_data data) override;
 };
 

@@ -1,10 +1,10 @@
 #include "VariableAssignment.h"
 
-void VariableAssignment::Execute(OperationData data)
+void VariableAssignment::Execute(Operation_data data)
 {
 	data.line.erase(0, 1);
 	
-	string value = PopStack(data.stack);
+	string value = Pop_stack(data.stack_);
 
-	data.variables.insert_or_assign(data.line, value);
+	data.variables_.insert_or_assign(data.line, value);
 }
